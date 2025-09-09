@@ -1,0 +1,27 @@
+#!/bin/sh
+
+start() {
+    # Commands to start the application with its own script
+    memoryleak_script
+}
+
+stop() {
+    # Commands to stop the application
+}
+
+case $1 in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        $0 stop
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
